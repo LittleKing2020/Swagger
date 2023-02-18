@@ -13,6 +13,10 @@ namespace Swagger.Controllers
     public class MyApiController : ControllerBase
     {
         // GET: api/<MyApiController>
+        /// <summary>
+        /// This action has no parameters
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IEnumerable<string> Get()
         {
@@ -20,6 +24,11 @@ namespace Swagger.Controllers
         }
 
         // GET api/<MyApiController>/5
+        /// <summary>
+        /// This action has one parameter
+        /// </summary>
+        /// <param name="id">This parameter must be integer</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public string Get(int id)
         {

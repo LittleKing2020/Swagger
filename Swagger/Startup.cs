@@ -7,7 +7,9 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Swagger
@@ -36,7 +38,7 @@ namespace Swagger
                         Contact = new OpenApiContact
                         {
                             Email = "alimamali1387@gmail.com",
-                            Name = "Arezoo Ebrahimi",
+                            Name = "Alireza Soleimani",
                             Url = new Uri("http://www.google.com"),
                         },
                         License = new OpenApiLicense
@@ -45,6 +47,9 @@ namespace Swagger
                             Url = new Uri("http://www.google.com")
                         }
                     });
+                var xmlFiles = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFiles);
+                c.IncludeXmlComments(xmlPath);
             });
         }
 
